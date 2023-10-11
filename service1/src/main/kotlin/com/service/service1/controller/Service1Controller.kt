@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/api/v1/test")
-class TestController() {
+@RequestMapping("/api/v1/service1")
+class Service1Controller() {
 
     @GetMapping
     fun get(): ResponseEntity<String> {
