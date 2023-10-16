@@ -25,3 +25,6 @@ springdoc:
     path: /api-docs
 server:
   port: '8081'
+jwt:
+  secret: "SEnMY0a7pFtLU+VFhmEK3asJYFADH/4kCaLjIiBJ15E="
+  expiration: 3600
