@@ -1,4 +1,4 @@
-package com.identityservice.model
+package com.identityservice.domain.model
 
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue

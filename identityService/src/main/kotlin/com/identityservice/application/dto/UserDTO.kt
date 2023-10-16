@@ -1,4 +1,4 @@
-package com.identityservice.dto
+package com.identityservice.application.dto
 
 class UserDTO {
     @JvmField

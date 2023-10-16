@@ -1,7 +1,7 @@
-package com.identityservice.controller
+package com.identityservice.presentation.controller
 
-import com.identityservice.dto.UserDTO
-import com.identityservice.service.AuthenticationService
+import com.identityservice.application.dto.UserDTO
+import com.identityservice.application.service.AuthenticationService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -14,8 +14,14 @@ class AuthenticationController(private val authenticationService: Authentication
 
     @PostMapping("/login")
     fun login(@RequestBody user: UserDTO): ResponseEntity<String> {
-        val username = user.password
+        val username = user.username
         val password = user.password
-        return ResponseEntity.status(401).build()
+
+        if (username == null || password == null)
+            return ResponseEntity.status(401).build()
+
+        this.authenticationService.authentication(username, password);
+
+        return ResponseEntity.status(200).build()
     }
 }
