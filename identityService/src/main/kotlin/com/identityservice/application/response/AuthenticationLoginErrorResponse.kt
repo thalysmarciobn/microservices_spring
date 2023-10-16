@@ -5,7 +5,5 @@ import com.identityservice.application.enums.AuthenticationEnum
 
 class AuthenticationLoginErrorResponse(var message: String, code: AuthenticationEnum) : AuthenticationResponse(code)
 {
-    constructor(message: String, data: AuthenticationDTO) : this(message, data.code) {
-
-    }
+    constructor(message: String, data: AuthenticationDTO) : this(message, data.code)
 }
