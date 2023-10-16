@@ -1,17 +1,21 @@
 package com.identityservice.domain.model
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import jakarta.persistence.*
 
 @Entity
+@Table(name = "users")
 class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
+
+    @Column(name = "username")
     var username: String? = null
+
+    @Column(name = "password")
     var password: String? = null
+
+    @Column(name = "email")
     var email: String? = null
 
     constructor()

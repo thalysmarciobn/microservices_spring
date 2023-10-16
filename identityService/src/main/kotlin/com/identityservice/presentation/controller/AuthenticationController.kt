@@ -1,6 +1,10 @@
 package com.identityservice.presentation.controller
 
 import com.identityservice.application.dto.UserDTO
+import com.identityservice.application.enums.AuthenticationEnum
+import com.identityservice.application.response.AuthenticationLoginErrorResponse
+import com.identityservice.application.response.AuthenticationLoginSuccessResponse
+import com.identityservice.application.response.AuthenticationResponse
 import com.identityservice.application.service.AuthenticationService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
@@ -13,15 +17,15 @@ import org.springframework.web.bind.annotation.RestController
 class AuthenticationController(private val authenticationService: AuthenticationService) {
 
     @PostMapping("/login")
-    fun login(@RequestBody user: UserDTO): ResponseEntity<String> {
+    fun login(@RequestBody user: UserDTO): ResponseEntity<AuthenticationResponse> {
         val username = user.username
         val password = user.password
 
         if (username == null || password == null)
-            return ResponseEntity.status(401).build()
+            return ResponseEntity.badRequest().body(AuthenticationLoginErrorResponse("Invalid Input", AuthenticationEnum.INVALID_INPUT))
 
-        this.authenticationService.authentication(username, password);
+        val authentication = this.authenticationService.authentication(username, password);
 
-        return ResponseEntity.status(200).build()
+        return ResponseEntity.ok(AuthenticationLoginSuccessResponse(authentication))
     }
 }
