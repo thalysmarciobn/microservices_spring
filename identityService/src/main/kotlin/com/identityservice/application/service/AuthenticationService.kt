@@ -11,7 +11,9 @@ class AuthenticationService(
     @Autowired private val userRepository: UserRepository
 ) {
     fun authentication(username: String, password: String): AuthenticationDTO {
-        val user = this.userRepository.findByUsername(username).orElse(null) ?: return AuthenticationDTO(AuthenticationEnum.NOT_FOUND)
+        val user = this.userRepository.findByUsername(username).orElse(null) ?: return AuthenticationDTO(
+            AuthenticationEnum.NOT_FOUND
+        )
 
         if (user.password != password)
             return AuthenticationDTO(AuthenticationEnum.INCORRECT_PASSWORD)
