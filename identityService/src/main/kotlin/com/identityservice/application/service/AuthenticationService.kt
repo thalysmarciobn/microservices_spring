@@ -15,21 +15,21 @@ class AuthenticationService(
     @Autowired private val userRepository: UserRepository,
     @Autowired private val jwtConfig: JwtConfig
 ) {
-    fun authentication(username: String, password: String): AuthenticationDTO {
-        val user = this.userRepository.findByUsername(username).orElse(null) ?: return AuthenticationDTO(
-            AuthenticationEnum.NOT_FOUND
-        )
+    fun verify(username: String, password: String): AuthenticationEnum {
+        val user = this.userRepository.findByUsername(username).orElse(null) ?: return AuthenticationEnum.NOT_FOUND
 
         if (user.password != password)
-            return AuthenticationDTO(AuthenticationEnum.INCORRECT_PASSWORD)
+            return AuthenticationEnum.INCORRECT_PASSWORD
 
-        val token = Jwts.builder()
+        return AuthenticationEnum.SUCCESS
+    }
+
+    fun generateToken(username: String, password: String): String {
+        return Jwts.builder()
             .setSubject(username)
             .setIssuedAt(Date())
             .setExpiration(Date(System.currentTimeMillis() + this.jwtConfig.expiration() * 1000))
             .signWith(SignatureAlgorithm.HS512, this.jwtConfig.secretKey())
             .compact()
-
-        return AuthenticationDTO(AuthenticationEnum.SUCCESS, token)
     }
 }

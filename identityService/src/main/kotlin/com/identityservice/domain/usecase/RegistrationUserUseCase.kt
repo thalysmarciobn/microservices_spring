@@ -9,7 +9,7 @@ import com.identityservice.application.service.RegistrationService
 import org.springframework.stereotype.Component
 
 @Component
-class CreateUserUseCase(private val registrationService: RegistrationService) {
+class RegistrationUserUseCase(private val registrationService: RegistrationService) {
 
     fun execute(request: RegistrationRequest): RegistrationResponse {
         val username = request.username
