@@ -26,7 +26,7 @@ class AuthenticationService(
         val token = Jwts.builder()
             .setSubject(username)
             .setIssuedAt(Date())
-            .setExpiration(Date(System.currentTimeMillis() + jwtConfig.expiration() * 1000))
+            .setExpiration(Date(System.currentTimeMillis() + this.jwtConfig.expiration() * 1000))
             .signWith(SignatureAlgorithm.HS512, this.jwtConfig.secretKey())
             .compact()
 

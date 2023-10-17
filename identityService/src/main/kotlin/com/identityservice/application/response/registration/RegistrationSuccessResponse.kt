@@ -1,0 +1,5 @@
+package com.identityservice.application.response.registration
+
+import com.identityservice.application.enums.RegistrationEnum
+
+class RegistrationSuccessResponse: RegistrationResponse(RegistrationEnum.SUCCESS)
