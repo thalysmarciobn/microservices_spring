@@ -1,13 +1,9 @@
 package com.identityservice.presentation.controller
 
-import com.identityservice.application.enums.AuthenticationEnum
 import com.identityservice.application.request.authentication.AuthenticationRequest
 import com.identityservice.application.request.registration.RegistrationRequest
-import com.identityservice.application.response.authentication.AuthenticationLoginErrorResponse
-import com.identityservice.application.response.authentication.AuthenticationLoginSuccessResponse
 import com.identityservice.application.response.authentication.AuthenticationResponse
 import com.identityservice.application.response.registration.RegistrationResponse
-import com.identityservice.application.service.AuthenticationService
 import com.identityservice.domain.usecase.AuthenticationUserUseCase
 import com.identityservice.domain.usecase.RegistrationUserUseCase
 import org.springframework.http.ResponseEntity

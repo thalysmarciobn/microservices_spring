@@ -1,6 +1,5 @@
 package com.identityservice.application.service
 
-import com.identityservice.application.dto.AuthenticationDTO
 import com.identityservice.application.enums.AuthenticationEnum
 import com.identityservice.configuration.JwtConfig
 import com.identityservice.domain.repository.UserRepository
@@ -22,14 +21,5 @@ class AuthenticationService(
             return AuthenticationEnum.INCORRECT_PASSWORD
 
         return AuthenticationEnum.SUCCESS
-    }
-
-    fun generateToken(username: String, password: String): String {
-        return Jwts.builder()
-            .setSubject(username)
-            .setIssuedAt(Date())
-            .setExpiration(Date(System.currentTimeMillis() + this.jwtConfig.expiration() * 1000))
-            .signWith(SignatureAlgorithm.HS512, this.jwtConfig.secretKey())
-            .compact()
     }
 }

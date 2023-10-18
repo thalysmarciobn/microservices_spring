@@ -6,10 +6,12 @@ import com.identityservice.application.response.authentication.AuthenticationLog
 import com.identityservice.application.response.authentication.AuthenticationLoginSuccessResponse
 import com.identityservice.application.response.authentication.AuthenticationResponse
 import com.identityservice.application.service.AuthenticationService
+import com.identityservice.application.service.CryptographyService
 import org.springframework.stereotype.Component
 
 @Component
-class AuthenticationUserUseCase(private val authenticationService: AuthenticationService) {
+class AuthenticationUserUseCase(private val authenticationService: AuthenticationService,
+    private val cryptographyService: CryptographyService) {
 
     fun execute(request: AuthenticationRequest): AuthenticationResponse {
         val username = request.username
@@ -20,7 +22,7 @@ class AuthenticationUserUseCase(private val authenticationService: Authenticatio
 
         return when (val authentication = this.authenticationService.verify(username, password)) {
             AuthenticationEnum.SUCCESS -> {
-                val token = authenticationService.generateToken(username, password)
+                val token = this.cryptographyService.generateToken(username, password)
                 return AuthenticationLoginSuccessResponse(token)
             }
             else -> AuthenticationLoginErrorResponse("a", authentication)

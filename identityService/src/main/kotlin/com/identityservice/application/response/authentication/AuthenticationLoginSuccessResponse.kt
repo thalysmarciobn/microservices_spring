@@ -1,6 +1,5 @@
 package com.identityservice.application.response.authentication
 
-import com.identityservice.application.dto.AuthenticationDTO
 import com.identityservice.application.enums.AuthenticationEnum
 
 
