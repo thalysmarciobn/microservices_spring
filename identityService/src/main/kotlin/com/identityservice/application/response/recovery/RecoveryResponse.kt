@@ -1,7 +1,7 @@
 package com.identityservice.application.response.recovery
 
-import com.identityservice.application.enums.RecoveryEnum
+import com.identityservice.application.enums.RecoveryTypeEnum
 
 abstract class RecoveryResponse(
-    val code: RecoveryEnum
+    val code: RecoveryTypeEnum
 )

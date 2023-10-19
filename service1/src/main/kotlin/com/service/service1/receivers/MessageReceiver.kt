@@ -2,7 +2,7 @@ package com.service.service1.receivers
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.service.service1.application.message.RecoveryMessage
+import com.service.service1.application.message.MailMessage
 import org.springframework.amqp.rabbit.annotation.RabbitListener
 import org.springframework.stereotype.Component
 
@@ -13,7 +13,7 @@ class MessageReceiver {
     fun handleMessage(message: ByteArray) {
         val objectMapper: ObjectMapper = jacksonObjectMapper()
 
-        val recoveryMessage: RecoveryMessage = objectMapper.readValue(message, RecoveryMessage::class.java)
+        val recoveryMessage: MailMessage = objectMapper.readValue(message, MailMessage::class.java)
 
         println(recoveryMessage.type)
     }

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class AuthenticationService(
+class LoginService(
     @Autowired private val userRepository: UserRepository,
     @Autowired private val jwtConfig: JwtConfig
 ) {

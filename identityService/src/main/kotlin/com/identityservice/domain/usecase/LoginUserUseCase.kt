@@ -5,12 +5,12 @@ import com.identityservice.application.request.login.LoginRequest
 import com.identityservice.application.response.login.LoginErrorResponse
 import com.identityservice.application.response.login.LoginResponse
 import com.identityservice.application.response.login.LoginSuccessResponse
-import com.identityservice.application.service.AuthenticationService
+import com.identityservice.application.service.LoginService
 import com.identityservice.application.service.CryptographyService
 import org.springframework.stereotype.Component
 
 @Component
-class LoginUserUseCase(private val authenticationService: AuthenticationService,
+class LoginUserUseCase(private val authenticationService: LoginService,
                        private val cryptographyService: CryptographyService) {
 
     fun execute(request: LoginRequest): LoginResponse {

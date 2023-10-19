@@ -2,7 +2,9 @@ package com.identityservice.domain.usecase
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.identityservice.application.message.RecoveryMessage
+import com.identityservice.application.enums.MailTypeEnum
+import com.identityservice.application.enums.RecoveryTypeEnum
+import com.identityservice.application.message.MailMessage
 import com.identityservice.application.request.recovery.RecoveryRequest
 import com.identityservice.application.response.recovery.RecoveryErrorResponse
 import com.identityservice.application.response.recovery.RecoveryResponse
@@ -22,7 +24,17 @@ class RecoveryUserUseCase(private val rabbitTemplate: RabbitTemplate) {
 
         val objectMapper: ObjectMapper = jacksonObjectMapper()
 
-        this.rabbitTemplate.convertSendAndReceive("mail", objectMapper.writeValueAsBytes(RecoveryMessage(type, value)))
+        val message = when (type) {
+            RecoveryTypeEnum.RECOVERY_BR_USERNAME -> this.rabbitTemplate.convertSendAndReceive(
+                "mail",
+                objectMapper.writeValueAsBytes(MailMessage(MailTypeEnum.RECOVERY_BY_USERNAME, value))
+            )
+
+            RecoveryTypeEnum.RECOVERY_BY_EMAIL -> this.rabbitTemplate.convertSendAndReceive(
+                "mail",
+                objectMapper.writeValueAsBytes(MailMessage(MailTypeEnum.RECOVERY_BY_EMAIL, value))
+            )
+        }
 
         return RecoverySuccessResponse()
     }

@@ -5,11 +5,11 @@ import com.identityservice.application.request.register.RegistrationRequest
 import com.identityservice.application.response.register.RegistrationErrorResponse
 import com.identityservice.application.response.register.RegistrationResponse
 import com.identityservice.application.response.register.RegistrationSuccessResponse
-import com.identityservice.application.service.RegistrationService
+import com.identityservice.application.service.RegisterService
 import org.springframework.stereotype.Component
 
 @Component
-class RegistrationUserUseCase(private val registrationService: RegistrationService) {
+class RegistrationUserUseCase(private val registrationService: RegisterService) {
 
     fun execute(request: RegistrationRequest): RegistrationResponse {
         val username = request.username
@@ -27,7 +27,7 @@ class RegistrationUserUseCase(private val registrationService: RegistrationServi
 
         val user = this.registrationService.register(request)
 
-        if (user != null)
+        if (user)
             return RegistrationSuccessResponse()
 
         return RegistrationErrorResponse("message4", RegistrationEnum.INVALID_INPUT)

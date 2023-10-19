@@ -1,7 +1,7 @@
 package com.identityservice
 
 import com.identityservice.application.enums.AuthenticationEnum
-import com.identityservice.application.service.AuthenticationService
+import com.identityservice.application.service.LoginService
 import com.identityservice.domain.repository.UserRepository
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -13,7 +13,7 @@ import org.springframework.boot.test.mock.mockito.MockBean
 class IdentityServiceApplicationTests {
 
     @Autowired
-    private lateinit var loginService: AuthenticationService
+    private lateinit var loginService: LoginService
 
     @MockBean
     private lateinit var userRepository: UserRepository

@@ -1,6 +1,7 @@
 package com.identityservice.application.enums
 
-enum class RecoveryTypeEnum {
-    RECOVERY_BR_USERNAME,
+enum class MailTypeEnum {
+    SEND_EMAIL,
+    RECOVERY_BY_USERNAME,
     RECOVERY_BY_EMAIL
 }
