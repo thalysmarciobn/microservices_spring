@@ -1,10 +1,10 @@
 package com.identityservice.domain.usecase
 
 import com.identityservice.application.enums.RegistrationEnum
-import com.identityservice.application.request.registration.RegistrationRequest
-import com.identityservice.application.response.registration.RegistrationErrorResponse
-import com.identityservice.application.response.registration.RegistrationResponse
-import com.identityservice.application.response.registration.RegistrationSuccessResponse
+import com.identityservice.application.request.register.RegistrationRequest
+import com.identityservice.application.response.register.RegistrationErrorResponse
+import com.identityservice.application.response.register.RegistrationResponse
+import com.identityservice.application.response.register.RegistrationSuccessResponse
 import com.identityservice.application.service.RegistrationService
 import org.springframework.stereotype.Component
 
