@@ -10,11 +10,11 @@ import org.springframework.stereotype.Component
 class MessageReceiver {
 
     @RabbitListener(queues = ["mail"])
-    fun handleMessage(message: ByteArray) {
+    fun handleMessage(message: ByteArray): String {
         val objectMapper: ObjectMapper = jacksonObjectMapper()
 
         val recoveryMessage: MailMessage = objectMapper.readValue(message, MailMessage::class.java)
 
-        println(recoveryMessage.type)
+        return "test"
     }
 }

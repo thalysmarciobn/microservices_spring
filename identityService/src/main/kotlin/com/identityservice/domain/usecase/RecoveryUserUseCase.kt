@@ -36,6 +36,6 @@ class RecoveryUserUseCase(private val rabbitTemplate: RabbitTemplate) {
             )
         }
 
-        return RecoverySentResponse(type)
+        return RecoverySentResponse(type, message.toString())
     }
 }
