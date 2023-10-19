@@ -37,6 +37,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/schedulerService" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/schedulerService" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/service1" />
         <option name="modules">
           <set>
