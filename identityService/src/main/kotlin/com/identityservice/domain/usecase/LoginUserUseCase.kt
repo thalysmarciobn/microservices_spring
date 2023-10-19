@@ -3,8 +3,8 @@ package com.identityservice.domain.usecase
 import com.identityservice.application.enums.AuthenticationEnum
 import com.identityservice.application.request.login.LoginRequest
 import com.identityservice.application.response.login.LoginErrorResponse
-import com.identityservice.application.response.login.LoginSuccessResponse
 import com.identityservice.application.response.login.LoginResponse
+import com.identityservice.application.response.login.LoginSuccessResponse
 import com.identityservice.application.service.AuthenticationService
 import com.identityservice.application.service.CryptographyService
 import org.springframework.stereotype.Component

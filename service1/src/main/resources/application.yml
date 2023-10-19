@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: 'service1'
+  config:
+    import: optional:configserver:http://localhost:8888
+  rabbitmq:
+    host: '127.0.0.1'
+    port: 5672
+    username: 'thalys'
+    password: '123456'
+server:
+  port: 7070
+# tell eureka to read configurations from config server
+# - optional means don't fail (start normally) if config server is not found
