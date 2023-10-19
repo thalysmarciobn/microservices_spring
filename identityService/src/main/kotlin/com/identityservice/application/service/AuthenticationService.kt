@@ -3,11 +3,8 @@ package com.identityservice.application.service
 import com.identityservice.application.enums.AuthenticationEnum
 import com.identityservice.configuration.JwtConfig
 import com.identityservice.domain.repository.UserRepository
-import io.jsonwebtoken.Jwts
-import io.jsonwebtoken.SignatureAlgorithm
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
 class AuthenticationService(

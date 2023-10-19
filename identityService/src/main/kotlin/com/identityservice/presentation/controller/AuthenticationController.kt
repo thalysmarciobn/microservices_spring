@@ -1,18 +1,18 @@
 package com.identityservice.presentation.controller
 
-import com.identityservice.application.request.authentication.AuthenticationRequest
+import com.identityservice.application.request.authentication.LoginRequest
 import com.identityservice.application.request.registration.RegistrationRequest
-import com.identityservice.application.response.authentication.AuthenticationResponse
+import com.identityservice.application.response.login.LoginResponse
 import com.identityservice.application.response.registration.RegistrationResponse
-import com.identityservice.domain.usecase.AuthenticationUserUseCase
+import com.identityservice.domain.usecase.LoginUserUseCase
 import com.identityservice.domain.usecase.RegistrationUserUseCase
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping(path = ["/api/v1/auth"])
-class AuthenticationController(private val authenticationUserUseCase: AuthenticationUserUseCase,
-    private val registrationUserUseCase: RegistrationUserUseCase
+@RequestMapping(path = ["/api/v1/identity/auth"])
+class AuthenticationController(private val loginUserUseCase: LoginUserUseCase,
+                               private val registrationUserUseCase: RegistrationUserUseCase
 ) {
 
     @GetMapping("/test")
@@ -20,9 +20,9 @@ class AuthenticationController(private val authenticationUserUseCase: Authentica
         return ResponseEntity.ok("ok")
     }
 
-    @PostMapping("/authentication")
-    fun login(@RequestBody request: AuthenticationRequest): ResponseEntity<AuthenticationResponse> {
-        return ResponseEntity.ok(this.authenticationUserUseCase.execute(request))
+    @PostMapping("/login")
+    fun login(@RequestBody request: LoginRequest): ResponseEntity<LoginResponse> {
+        return ResponseEntity.ok(this.loginUserUseCase.execute(request))
     }
 
     @PostMapping("/register")

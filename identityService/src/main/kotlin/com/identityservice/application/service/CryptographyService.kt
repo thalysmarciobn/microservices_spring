@@ -22,7 +22,7 @@ class CryptographyService(
             .setSubject(username)
             .setIssuedAt(Date())
             .setExpiration(Date(System.currentTimeMillis() + this.jwtConfig.expiration() * 1000))
-            .signWith(SignatureAlgorithm.HS512, this.hmacShaKeyFor(this.jwtConfig.secretKey()))
+            .signWith(this.hmacShaKeyFor(this.jwtConfig.secretKey()), SignatureAlgorithm.HS512)
             .compact()
     }
 }
