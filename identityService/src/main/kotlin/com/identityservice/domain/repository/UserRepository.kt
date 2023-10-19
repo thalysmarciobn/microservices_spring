@@ -7,6 +7,7 @@ import java.util.*
 interface UserRepository : JpaRepository<User, Long> {
     override fun findById(id: Long): Optional<User>
     fun findByUsername(username: String): Optional<User>
+    fun findByEmail(username: String): Optional<User>
     override fun <S : User> save(entity: S): S
     override fun deleteById(id: Long)
 }

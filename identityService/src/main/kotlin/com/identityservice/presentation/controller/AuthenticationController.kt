@@ -1,17 +1,20 @@
 package com.identityservice.presentation.controller
 
-import com.identityservice.application.dto.UserDTO
-import com.identityservice.application.enums.AuthenticationEnum
-import com.identityservice.application.response.AuthenticationLoginErrorResponse
-import com.identityservice.application.response.AuthenticationLoginSuccessResponse
-import com.identityservice.application.response.AuthenticationResponse
-import com.identityservice.application.service.AuthenticationService
+import com.identityservice.application.request.authentication.LoginRequest
+import com.identityservice.application.request.registration.RegistrationRequest
+import com.identityservice.application.response.login.LoginResponse
+import com.identityservice.application.response.registration.RegistrationResponse
+import com.identityservice.domain.usecase.LoginUserUseCase
+import com.identityservice.domain.usecase.RegistrationUserUseCase
+import io.micrometer.tracing.annotation.NewSpan
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/auth")
-class AuthenticationController(private val authenticationService: AuthenticationService) {
+@RequestMapping(path = ["/api/v1/identity/auth"])
+class AuthenticationController(private val loginUserUseCase: LoginUserUseCase,
+                               private val registrationUserUseCase: RegistrationUserUseCase
+) {
 
     @GetMapping("/test")
     fun test(): ResponseEntity<String> {
@@ -19,28 +22,15 @@ class AuthenticationController(private val authenticationService: Authentication
     }
 
     @PostMapping("/login")
-    fun login(@RequestBody user: UserDTO): ResponseEntity<AuthenticationResponse> {
-        val username = user.username
-        val password = user.password
+    @NewSpan("login")
+    fun login(@RequestBody request: LoginRequest): ResponseEntity<LoginResponse> {
+        return ResponseEntity.ok(this.loginUserUseCase.execute(request))
+    }
 
-        if (username == null || password == null)
-            return ResponseEntity.badRequest()
-                .body(AuthenticationLoginErrorResponse("Invalid Input", AuthenticationEnum.INVALID_INPUT))
-
-        val authentication = this.authenticationService.authentication(username, password)
-
-        return when (authentication.code) {
-            AuthenticationEnum.SUCCESS -> ResponseEntity.ok(AuthenticationLoginSuccessResponse(authentication))
-            AuthenticationEnum.NOT_FOUND -> ResponseEntity.ok(AuthenticationLoginErrorResponse("a", authentication))
-            AuthenticationEnum.INCORRECT_PASSWORD -> ResponseEntity.ok(
-                AuthenticationLoginErrorResponse(
-                    "b",
-                    authentication
-                )
-            )
-
-            AuthenticationEnum.INVALID_INPUT -> ResponseEntity.ok(AuthenticationLoginErrorResponse("c", authentication))
-        }
+    @PostMapping("/register")
+    @NewSpan("register")
+    fun register(@RequestBody request: RegistrationRequest): ResponseEntity<RegistrationResponse> {
+        return ResponseEntity.ok(this.registrationUserUseCase.execute(request))
     }
 }
 

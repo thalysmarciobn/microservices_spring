@@ -1,4 +1,6 @@
 spring:
+  main:
+    web-application-type: 'reactive'
   flyway:
     enabled: 'true'
     baseline-on-migrate: 'true'
@@ -17,14 +19,8 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: postgres
     url: jdbc:postgresql://localhost:5432/micro
-springdoc:
-  swagger-ui:
-    enabled: 'true'
-    path: /swagger-ui.html
-  api-docs:
-    path: /api-docs
 server:
-  port: '8081'
+  port: 8081
 jwt:
-  secret: "SEnMY0a7pFtLU+VFhmEK3asJYFADH/4kCaLjIiBJ15E="
+  secret: "zbqHPMwnrE66YHFFJJDBr0ocRy8PvCuw4bdtVlwLxdI3oWrWD5hmspmb+EiV6SGBolhpgvkTbO6wxytGcU0cmRBOVmMTpRY9x2mmWhHv6+AyvPBaVnLxzwEewXntX8cM2jzW0CaAetQVeZRMtu9U07Yp0RC4ChkH"
   expiration: 3600
