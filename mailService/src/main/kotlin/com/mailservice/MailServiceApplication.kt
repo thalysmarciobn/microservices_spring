@@ -1,11 +1,11 @@
-package com.scheduler
+package com.mailservice
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SchedulerServiceApplication
+class MailServiceApplication
 
 fun main(args: Array<String>) {
-	runApplication<SchedulerServiceApplication>(*args)
+    runApplication<MailServiceApplication>(*args)
 }
