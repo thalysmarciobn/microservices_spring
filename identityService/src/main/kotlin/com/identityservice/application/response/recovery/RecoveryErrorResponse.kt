@@ -1,5 +1,5 @@
 package com.identityservice.application.response.recovery
 
-import com.identityservice.application.enums.RecoveryEnum
+import com.identityservice.application.enums.RecoveryTypeResponseEnum
 
-class RecoveryErrorResponse(message: String) : RecoveryResponse(RecoveryEnum.FAIL)
+class RecoveryErrorResponse(var message: String) : RecoveryResponse(RecoveryTypeResponseEnum.FAIL)

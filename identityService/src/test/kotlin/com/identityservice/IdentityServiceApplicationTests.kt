@@ -1,6 +1,6 @@
 package com.identityservice
 
-import com.identityservice.application.enums.AuthenticationEnum
+import com.identityservice.application.enums.LoginEnum
 import com.identityservice.application.service.LoginService
 import com.identityservice.domain.repository.UserRepository
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -21,7 +21,7 @@ class IdentityServiceApplicationTests {
     @Test
     fun testAuthenticationSuccess() {
         val result = this.loginService.authentication("thalys", "123456")
-        assertEquals(AuthenticationEnum.SUCCESS, result.code)
+        assertEquals(LoginEnum.SUCCESS, result.code)
     }
 
 }

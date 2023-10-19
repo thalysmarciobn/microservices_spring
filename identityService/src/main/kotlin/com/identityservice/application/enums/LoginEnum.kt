@@ -1,8 +1,8 @@
 package com.identityservice.application.enums
 
-enum class RegistrationEnum {
+enum class LoginEnum {
     SUCCESS,
-    EXIST,
+    NOT_FOUND,
     INCORRECT_PASSWORD,
     INVALID_INPUT
 }

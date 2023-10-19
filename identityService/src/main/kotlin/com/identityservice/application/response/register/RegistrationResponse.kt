@@ -1,7 +1,7 @@
 package com.identityservice.application.response.register
 
-import com.identityservice.application.enums.RegistrationEnum
+import com.identityservice.application.enums.RegisterEnum
 
 abstract class RegistrationResponse(
-    val code: RegistrationEnum
+    val code: RegisterEnum
 )

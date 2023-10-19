@@ -1,6 +1,5 @@
 package com.identityservice.application.service
 
-import com.identityservice.application.enums.AuthenticationEnum
 import com.identityservice.application.request.register.RegistrationRequest
 import com.identityservice.domain.model.User
 import com.identityservice.domain.repository.UserRepository
