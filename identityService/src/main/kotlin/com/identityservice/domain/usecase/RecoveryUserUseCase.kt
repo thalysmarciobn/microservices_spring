@@ -8,7 +8,7 @@ import com.identityservice.application.message.MailMessage
 import com.identityservice.application.request.recovery.RecoveryRequest
 import com.identityservice.application.response.recovery.RecoveryErrorResponse
 import com.identityservice.application.response.recovery.RecoveryResponse
-import com.identityservice.application.response.recovery.RecoverySuccessResponse
+import com.identityservice.application.response.recovery.RecoverySentResponse
 import org.springframework.amqp.rabbit.core.RabbitTemplate
 import org.springframework.stereotype.Component
 
@@ -25,7 +25,7 @@ class RecoveryUserUseCase(private val rabbitTemplate: RabbitTemplate) {
         val objectMapper: ObjectMapper = jacksonObjectMapper()
 
         val message = when (type) {
-            RecoveryTypeEnum.RECOVERY_BR_USERNAME -> this.rabbitTemplate.convertSendAndReceive(
+            RecoveryTypeEnum.RECOVERY_BY_USERNAME -> this.rabbitTemplate.convertSendAndReceive(
                 "mail",
                 objectMapper.writeValueAsBytes(MailMessage(MailTypeEnum.RECOVERY_BY_USERNAME, value))
             )
@@ -36,6 +36,6 @@ class RecoveryUserUseCase(private val rabbitTemplate: RabbitTemplate) {
             )
         }
 
-        return RecoverySuccessResponse()
+        return RecoverySentResponse(type)
     }
 }

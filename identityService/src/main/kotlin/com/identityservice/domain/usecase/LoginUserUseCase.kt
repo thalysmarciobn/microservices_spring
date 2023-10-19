@@ -1,6 +1,6 @@
 package com.identityservice.domain.usecase
 
-import com.identityservice.application.enums.AuthenticationEnum
+import com.identityservice.application.enums.LoginEnum
 import com.identityservice.application.request.login.LoginRequest
 import com.identityservice.application.response.login.LoginErrorResponse
 import com.identityservice.application.response.login.LoginResponse
@@ -18,10 +18,10 @@ class LoginUserUseCase(private val authenticationService: LoginService,
         val password = request.password
 
         if (username == null || password == null)
-            return LoginErrorResponse("a", AuthenticationEnum.INVALID_INPUT)
+            return LoginErrorResponse("a", LoginEnum.INVALID_INPUT)
 
         return when (val authentication = this.authenticationService.verify(username, password)) {
-            AuthenticationEnum.SUCCESS -> {
+            LoginEnum.SUCCESS -> {
                 val token = this.cryptographyService.generateToken(username, password)
                 return LoginSuccessResponse(token)
             }
