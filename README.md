@@ -5,3 +5,6 @@
 Este é um projeto com o intuito de aprendizagem em Spring em Kotlin. Ele consiste na migração de um projeto já estruturado, criado por mim em .NET Core. Para mais informações do projeto Spring e NET Core, acesse o Discord.
 
 https://github.com/thalysmarciobn/microservices
+
+## Wiki
+https://github.com/thalysmarciobn/microservices_spring/wiki
