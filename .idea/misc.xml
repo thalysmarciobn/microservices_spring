@@ -6,6 +6,7 @@
     <file type="web" url="file://$PROJECT_DIR$/discovery" />
     <file type="web" url="file://$PROJECT_DIR$/gateway" />
     <file type="web" url="file://$PROJECT_DIR$/identityService" />
+    <file type="web" url="file://$PROJECT_DIR$/mailService" />
     <file type="web" url="file://$PROJECT_DIR$/schedulerService" />
     <file type="web" url="file://$PROJECT_DIR$/service1" />
   </component>
