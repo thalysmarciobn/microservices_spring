@@ -1,6 +1,6 @@
 package com.identityservice.application.service
 
-import com.identityservice.application.request.registration.RegistrationRequest
+import com.identityservice.application.request.register.RegistrationRequest
 import com.identityservice.domain.model.User
 import com.identityservice.domain.repository.UserRepository
 import org.springframework.stereotype.Component

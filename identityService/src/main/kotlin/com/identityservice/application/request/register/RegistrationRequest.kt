@@ -1,4 +1,4 @@
-package com.identityservice.application.request.registration
+package com.identityservice.application.request.register
 
 data class RegistrationRequest(
     val username: String,
