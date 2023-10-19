@@ -6,6 +6,7 @@ import com.identityservice.application.response.login.LoginResponse
 import com.identityservice.application.response.registration.RegistrationResponse
 import com.identityservice.domain.usecase.LoginUserUseCase
 import com.identityservice.domain.usecase.RegistrationUserUseCase
+import io.micrometer.tracing.annotation.NewSpan
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -21,11 +22,13 @@ class AuthenticationController(private val loginUserUseCase: LoginUserUseCase,
     }
 
     @PostMapping("/login")
+    @NewSpan("login")
     fun login(@RequestBody request: LoginRequest): ResponseEntity<LoginResponse> {
         return ResponseEntity.ok(this.loginUserUseCase.execute(request))
     }
 
     @PostMapping("/register")
+    @NewSpan("register")
     fun register(@RequestBody request: RegistrationRequest): ResponseEntity<RegistrationResponse> {
         return ResponseEntity.ok(this.registrationUserUseCase.execute(request))
     }

@@ -21,6 +21,8 @@ repositories {
 extra["springCloudVersion"] = "2022.0.4"
 
 dependencies {
+    implementation("io.micrometer:micrometer-tracing-bridge-brave")
+
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
@@ -34,13 +36,13 @@ dependencies {
     implementation("org.flywaydb:flyway-core:8.5.5")
 
     implementation("io.jsonwebtoken:jjwt-root:0.11.2")
-
     implementation("io.jsonwebtoken:jjwt-api:0.11.2")
     implementation("io.jsonwebtoken:jjwt-impl:0.11.2")
     implementation("io.jsonwebtoken:jjwt-jackson:0.11.2")
 
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
     implementation("org.springdoc:springdoc-openapi-ui:1.6.14")
+
     implementation("io.springfox:springfox-swagger2:3.0.0")
     implementation("io.springfox:springfox-swagger-ui:3.0.0")
 
