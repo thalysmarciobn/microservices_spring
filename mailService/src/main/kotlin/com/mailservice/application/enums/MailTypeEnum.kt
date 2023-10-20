@@ -1,4 +1,4 @@
-package com.identityservice.application.enums
+package com.mailservice.application.enums
 
 enum class MailTypeEnum {
     RECOVERY,
