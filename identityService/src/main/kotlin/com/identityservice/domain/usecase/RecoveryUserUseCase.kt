@@ -17,8 +17,6 @@ class RecoveryUserUseCase(private val mailService: MailService) {
         if (type == null || value == null)
             return RecoveryErrorResponse("Invalid Input")
 
-        val message = this.mailService.execute(request.type, request.value)
-
-        return RecoverySentResponse(type, message)
+        return this.mailService.execute(request.type, request.value)
     }
 }
