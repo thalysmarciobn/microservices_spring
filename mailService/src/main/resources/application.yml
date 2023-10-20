@@ -8,3 +8,15 @@ spring:
     port: 5672
     username: 'thalys'
     password: '123456'
+  mail:
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: 'true'
+          auth: 'true'
+    host: thalysmarcio.local
+    username: test@thalysmarcio.local
+    password: 123456789
+    port: 587
+    protocol: smtp
