@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.cloud:spring-cloud-config-server:3.1.8")
+    implementation("org.springframework.cloud:spring-cloud-config-server:4.0.4")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

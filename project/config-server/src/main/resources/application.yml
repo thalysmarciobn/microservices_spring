@@ -5,7 +5,7 @@ spring:
         native:
           search-locations: classpath:/configurations
   application:
-    name: server-config
+    name: config-server
   profiles:
     active: native
 server:
