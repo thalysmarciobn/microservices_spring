@@ -1,5 +1,5 @@
 plugins {
-    id("groovy")
+    kotlin("jvm") version "1.8.22"
 }
 
 group = "com.project"

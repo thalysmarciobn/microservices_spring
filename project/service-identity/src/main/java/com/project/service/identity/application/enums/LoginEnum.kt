@@ -1,4 +1,8 @@
 package com.project.service.identity.application.enums
 
-class LoginEnum {
+enum class LoginEnum {
+    SUCCESS,
+    NOT_FOUND,
+    INCORRECT_PASSWORD,
+    INVALID_INPUT
 }

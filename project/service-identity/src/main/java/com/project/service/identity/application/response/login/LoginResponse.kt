@@ -1,4 +1,7 @@
 package com.project.service.identity.application.response.login
 
-class LoginResponse {
-}
+import com.project.service.identity.application.enums.LoginEnum
+
+abstract class LoginResponse(
+    val code: LoginEnum
+)

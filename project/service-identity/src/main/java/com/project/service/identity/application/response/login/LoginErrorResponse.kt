@@ -1,4 +1,5 @@
 package com.project.service.identity.application.response.login
 
-class LoginErrorResponse {
-}
+import com.project.service.identity.application.enums.LoginEnum
+
+class LoginErrorResponse(code: LoginEnum) : LoginResponse(code)
