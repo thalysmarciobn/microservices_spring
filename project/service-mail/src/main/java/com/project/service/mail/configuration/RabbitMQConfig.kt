@@ -1,4 +1,4 @@
-package com.project.service.identity.configuration
+package com.project.service.mail.configuration
 
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter
 import org.springframework.context.annotation.Bean

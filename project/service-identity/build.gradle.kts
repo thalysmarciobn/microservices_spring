@@ -17,10 +17,11 @@ extra["springCloudVersion"] = "2022.0.4"
 dependencies {
     implementation("io.micrometer:micrometer-tracing-bridge-brave")
 
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.cloud:spring-cloud-starter-config:4.0.4")
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.3")
+    implementation("org.springframework.cloud:spring-cloud-starter-config")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-amqp")
 
@@ -46,6 +47,12 @@ dependencies {
 
     implementation("javax.servlet:javax.servlet-api:4.0.1")
     implementation(project(":shared-message"))
+}
+
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+    }
 }
 
 tasks.test {

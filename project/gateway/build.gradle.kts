@@ -16,11 +16,9 @@ extra["springCloudVersion"] = "2022.0.4"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.cloud:spring-cloud-starter-gateway")
     implementation("org.springframework.cloud:spring-cloud-starter-config")
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
-
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 }
 
 dependencyManagement {

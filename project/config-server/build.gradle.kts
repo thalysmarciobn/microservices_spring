@@ -12,8 +12,17 @@ repositories {
     mavenCentral()
 }
 
+extra["springCloudVersion"] = "2022.0.4"
+
 dependencies {
-    implementation("org.springframework.cloud:spring-cloud-config-server:4.0.4")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.cloud:spring-cloud-config-server")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+    }
 }
 
 tasks.test {
